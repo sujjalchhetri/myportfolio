@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujjal Chhetri | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <div id="bg-canvas"></div>
+
+  <header>
+    <h1 class="typewriter">Sujjal Chhetri</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="my-photo.jpg" alt="My Photo">
+    <div>
+      <h2>Web Developer | Ethical Hackhing | Creative Enthusiast | Special Force Enthusiast</h2>
+      <p>I love building cool things on the internet. My work blends design, interactivity, Ethical Hacking and creativity to deliver unique experiences and make new friends through coding.</p>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <h3>About Me</h3>
+    <p>Hi greetings to everyone I’m Sujjal, a multi-talented creative and a special forces Enthusiast .I hail from a town name Siliguri, West Bengal as i have done my 10+2 from Apollo International School, Dehradun. Now I am currently persuing my B.Tech degree in Computer Science and Technology from Sikkim Manipal Institute of Technology and from there I have specialize in front-end web development and Ethical Hacking , ensuring smooth experiences online and offline and further i want to complete my introduction by using this quotes "DREAM BIG, DONT DREAM THE POSSIBLE, DREAM THE IMPOSSIBLE."Thank You.</p>
+    <img src="about-pic.jpg" alt="About Image">
+  </section>
+
+  <section class="section skills" id="skills">
+    <h3>Skills</h3>
+    <ul>
+      <li>HTML / CSS / JavaScript</li>
+      <li>React.js & C++</li>
+      <li>Team Leadership & Public Speaking</li>
+      <li>Graphic Design Basics</li>
+    </ul>
+  </section>
+
+  <section class="section projects" id="projects">
+    <h3>Projects</h3>
+    <p>Here are a few things I've worked on recently:</p>
+    <img src="project1.jpg" alt="Project 1">
+    <img src="project2.jpg" alt="Project 2">
+    <img src="project3.jpg" alt="Project 3">
+  </section>
+<div class="form">
+  <form action="action.php" method="POST">
+    <input type="text" name="name" placeholder="Your Name"><br><br>
+    <input type="email" name="email" placeholder="Your Email"><br><br>
+    <textarea name="message" placeholder="Your Message"></textarea><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+  <section class="section contact" id="contact">
+    <h3>Hire Me</h3>
+    <p>Email: chhetrisujjal@gmail.com</p>
+    <p>Instagram:<a href="https://www.instagram.com/sujj41._/" class="link">sujj41._</a></p>
+    <p>LinkedIn: linkedin.com/in/sujjalchhetri</p>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Sujjal Chhetri. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('bg-canvas').appendChild(renderer.domElement);
+
+    // Green Matrix-like background effect
+    const geometry = new THREE.PlaneGeometry(1000, 1000, 100, 100);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+    const grid = new THREE.Mesh(geometry, material);
+    scene.add(grid);
+
+    const light = new THREE.PointLight(0x00ff00, 1);
+    light.position.set(50, 50, 50);
+    scene.add(light);
+
+    camera.position.z = 200;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      grid.rotation.x += 0.001;
+      grid.rotation.y += 0.002;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
